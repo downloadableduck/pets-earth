@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "minecraft:block/melon_top",
+    "side": "minecraft:block/melon_side",
+    "front": "pets-earth:block/melon_head_front"
+  }
+}

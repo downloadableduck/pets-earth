@@ -1,0 +1,48 @@
+{
+	"schemaVersion": 1,
+	"id": "pets-earth",
+	"version": "${version}",
+	"name": "Pets: Earth",
+	"description": "Adds all of the Minecraft Earth mobs into PetsMod!",
+	"authors": [
+		"downloadableduck"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/downloadableduck/pets-earth",
+      "issues": "https://github.com/downloadableduck/pets-earth/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/pets-earth/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+          "com.jeff.pets.earth.PetsEarth"
+		],
+		"client": [
+          "com.jeff.pets.earth.client.PetsEarthClient"
+		]
+	},
+	"mixins": [
+		"pets-earth.mixins.json",
+		{
+			"config": "pets-earth.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*",
+      "pets-mod": ">=0.7.4"
+	},
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/pets-earth"
+      },
+      "parent": "pets-mod"
+    }
+  }
+}
