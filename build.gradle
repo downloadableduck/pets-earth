@@ -42,8 +42,8 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     implementation("com.terraformersmc:modmenu:${project.modmenu_version}")
     implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
-    implementation "maven.modrinth:pets-mod:0.7.6-26.1.x:sources"
-    implementation "maven.modrinth:pets-mod:0.7.6-26.1.x"
+    //implementation "maven.modrinth:pets-mod:0.7.10-26.2:sources"
+    implementation "maven.modrinth:pets-mod:0.7.10-26.2"
 }
 
 processResources {
