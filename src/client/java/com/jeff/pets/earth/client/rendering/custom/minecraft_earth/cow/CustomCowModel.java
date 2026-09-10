@@ -1,7 +1,7 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow;
 
 
-import com.jeff.pets.rendering.vanilla.cow.ClientCowModel;
+import com.jeff.pets.client.rendering.vanilla.cow.ClientCowModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;

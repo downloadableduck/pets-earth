@@ -1,9 +1,9 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.chicken.cluckshroom;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.mob.vanilla.passive.ClientChicken;
-import com.jeff.pets.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.ChickenRenderState;

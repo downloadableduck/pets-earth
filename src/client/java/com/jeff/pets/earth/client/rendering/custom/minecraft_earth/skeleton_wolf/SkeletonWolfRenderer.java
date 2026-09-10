@@ -1,11 +1,11 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.skeleton_wolf;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.mob.vanilla.neutral.ClientWolf;
-import com.jeff.pets.rendering.PetRenderer;
-import com.jeff.pets.rendering.vanilla.wolf.ClientWolfModel;
-import com.jeff.pets.rendering.vanilla.wolf.ClientWolfRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.vanilla.wolf.ClientWolfModel;
+import com.jeff.pets.client.rendering.vanilla.wolf.ClientWolfRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.animal.wolf.AdultWolfModel;
 import net.minecraft.client.model.animal.wolf.WolfModel;
@@ -17,7 +17,7 @@ import net.minecraft.client.renderer.entity.state.WolfRenderState;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import static com.jeff.pets.Central.CONFIG;
+import static com.jeff.pets.client.Central.CONFIG;
 
 public class SkeletonWolfRenderer extends PetRenderer<ClientWolf, WolfRenderState, ClientWolfModel> {
 

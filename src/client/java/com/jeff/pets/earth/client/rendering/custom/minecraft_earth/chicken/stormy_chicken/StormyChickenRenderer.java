@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.chicken.stormy_chicken;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.chicken.AbstractChickenRenderer;
 import net.minecraft.client.model.geom.ModelLayerLocation;

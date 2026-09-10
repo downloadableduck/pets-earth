@@ -1,15 +1,19 @@
 {
-	"required": true,
-	"package": "com.jeff.pets.earth.client.mixin",
-	"compatibilityLevel": "JAVA_25",
-	"client": [
-      "CentralMixin",
-      "ConfigScreenMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "com.jeff.pets.earth.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CentralMixin",
+    "ConfigScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "mixins": [
+    "PetsListMixin",
+    "UtilsMixin"
+  ]
 }

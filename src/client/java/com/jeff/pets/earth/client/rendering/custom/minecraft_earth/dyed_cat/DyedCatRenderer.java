@@ -1,11 +1,11 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.dyed_cat;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.mob.vanilla.passive.ClientCat;
-import com.jeff.pets.rendering.PetRenderer;
-import com.jeff.pets.rendering.vanilla.cat.ClientCatModel;
-import com.jeff.pets.rendering.vanilla.cat.ClientCatRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.vanilla.cat.ClientCatModel;
+import com.jeff.pets.client.rendering.vanilla.cat.ClientCatRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.entity.state.CatRenderState;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import static com.jeff.pets.Central.CONFIG;
+import static com.jeff.pets.client.Central.CONFIG;
 
 
 public class DyedCatRenderer extends PetRenderer<ClientCat, CatRenderState, ClientCatModel> {

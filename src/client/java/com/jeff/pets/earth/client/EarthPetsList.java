@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client;
 
-import dev.isxander.yacl3.api.NameableEnum;
+import com.jeff.pets.client.enums.NameableEnum;
 import net.minecraft.network.chat.Component;
 
 @SuppressWarnings("unused")

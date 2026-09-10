@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow;
 
-import com.jeff.pets.rendering.aprilfools.mooncow.LegacyCowModel;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 

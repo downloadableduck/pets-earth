@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.cookie_cow;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.AbstractEarthCowRenderer;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.CowUtils;

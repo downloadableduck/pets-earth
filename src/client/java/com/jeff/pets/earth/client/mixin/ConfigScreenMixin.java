@@ -1,25 +1,11 @@
 package com.jeff.pets.earth.client.mixin;
 
-import com.jeff.pets.PetsConfig;
-import com.jeff.pets.PetsConfigScreen;
-import com.jeff.pets.earth.client.EarthConfig;
-import com.jeff.pets.earth.client.EarthPetsList;
-import com.jeff.pets.earth.client.Vals;
-import me.shedaniel.autoconfig.AutoConfig;
+import com.jeff.pets.client.PetsConfigScreen;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Arrays;
-import java.util.function.Predicate;
-
-import static com.jeff.pets.earth.client.PetsEarthClient.EARTH_CONFIG;
 
 @Mixin(PetsConfigScreen.class)
 public class ConfigScreenMixin {
-    @Inject(at = @At("HEAD"), method = "lambda$getModConfigScreenFactory$4", cancellable = true)
+    /*@Inject(at = @At("HEAD"), method = "lambda$getModConfigScreenFactory$4", cancellable = true)
     private static void addCustomEntitySpecies(PetsConfig CONFIG, CallbackInfoReturnable<Enum<?>> cir) {
         if (Arrays.stream(Vals.getVals()).anyMatch(Predicate.isEqual(CONFIG.activePet))) {
             cir.setReturnValue(EarthPetsList.valueOf(CONFIG.activePet));
@@ -112,5 +98,5 @@ public class ConfigScreenMixin {
             case "bone_spider" -> EARTH_CONFIG.boneSpiderName = name;
         }
         AutoConfig.getConfigHolder(EarthConfig.class).save();
-    }
+    }*/
 }

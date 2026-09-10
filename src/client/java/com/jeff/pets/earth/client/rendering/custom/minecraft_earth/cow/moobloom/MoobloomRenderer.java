@@ -1,11 +1,11 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.moobloom;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.PetsEarth;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.earth.mob.custom.minecraft_earth.cow.MinecraftEarthCow;
-import com.jeff.pets.rendering.aprilfools.mooncow.LegacyCowModel;
-import com.jeff.pets.rendering.aprilfools.mooncow.MoonCowRenderState;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.MoonCowRenderState;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.AbstractEarthCowRenderer;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.CowUtils;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.CustomFlowerLayer;

@@ -1,9 +1,9 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.tropical_slime;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.mob.vanilla.hostile.ClientSlime;
-import com.jeff.pets.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.monster.slime.SlimeModel;
@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.state.SlimeRenderState;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import static com.jeff.pets.Central.CONFIG;
+import static com.jeff.pets.client.Central.CONFIG;
 
 public class TropicalSlimeRenderer extends PetRenderer<ClientSlime, SlimeRenderState, SlimeModel> {
 

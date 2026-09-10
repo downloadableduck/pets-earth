@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.sheep;
 
-import com.jeff.pets.rendering.vanilla.sheep.ClientSheepFurModel;
+import com.jeff.pets.client.rendering.vanilla.sheep.ClientSheepFurModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.animal.sheep.SheepModel;

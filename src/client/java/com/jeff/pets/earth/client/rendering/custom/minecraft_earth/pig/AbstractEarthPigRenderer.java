@@ -1,7 +1,7 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.pig;
 
 import com.jeff.pets.earth.mob.custom.minecraft_earth.pig.MinecraftEarthPig;
-import com.jeff.pets.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.state.PigRenderState;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import static com.jeff.pets.Central.CONFIG;
+import static com.jeff.pets.client.Central.CONFIG;
 
 public class AbstractEarthPigRenderer extends PetRenderer<MinecraftEarthPig, PigRenderState, EarthPigModel> {
 

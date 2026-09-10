@@ -1,8 +1,12 @@
 package com.jeff.pets.earth.client;
 
-import com.jeff.pets.Central;
-import com.jeff.pets.PetsClientInitializer;
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Central;
+import com.jeff.pets.client.PetsClientInitializer;
+import com.jeff.pets.client.Utils;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
+import com.jeff.pets.client.rendering.vanilla.cat.ClientCatRenderer;
+import com.jeff.pets.client.rendering.vanilla.chicken.ClientChickenModel;
+import com.jeff.pets.client.rendering.vanilla.wolf.ClientWolfRenderer;
 import com.jeff.pets.earth.PetsEarth;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.bone_spider.BoneSpiderRenderer;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.albino_cow.AlbinoCowRenderer;
@@ -64,10 +68,6 @@ import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.zombie.boulde
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.zombie.bouldering_zombie.BoulderingZombieRenderer;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.zombie.lobber_zombie.LobberZombieModel;
 import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.zombie.lobber_zombie.LobberZombieRenderer;
-import com.jeff.pets.rendering.aprilfools.mooncow.LegacyCowModel;
-import com.jeff.pets.rendering.vanilla.cat.ClientCatRenderer;
-import com.jeff.pets.rendering.vanilla.chicken.ClientChickenModel;
-import com.jeff.pets.rendering.vanilla.wolf.ClientWolfRenderer;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;

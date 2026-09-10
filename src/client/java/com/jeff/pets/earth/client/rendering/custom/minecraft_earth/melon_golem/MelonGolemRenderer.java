@@ -1,9 +1,9 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.melon_golem;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.PetsEarth;
 import com.jeff.pets.mob.vanilla.passive.ClientSnowGolem;
-import com.jeff.pets.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
 import net.minecraft.client.model.animal.golem.SnowGolemModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.block.BlockModelRenderState;

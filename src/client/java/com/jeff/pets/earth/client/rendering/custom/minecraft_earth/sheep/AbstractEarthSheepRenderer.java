@@ -1,6 +1,7 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.sheep;
 
-import com.jeff.pets.rendering.PetRenderer;
+import com.jeff.pets.client.rendering.PetRenderer;
+import com.jeff.pets.mob.AbstractPet;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -8,9 +9,9 @@ import net.minecraft.client.renderer.entity.state.SheepRenderState;
 import net.minecraft.world.entity.Mob;
 import org.jetbrains.annotations.NotNull;
 
-import static com.jeff.pets.Central.CONFIG;
+import static com.jeff.pets.client.Central.CONFIG;
 
-public abstract class AbstractEarthSheepRenderer<H extends Mob, I extends EntityModel<@NotNull SheepRenderState>> extends PetRenderer<@NotNull H, @NotNull SheepRenderState, @NotNull I> {
+public abstract class AbstractEarthSheepRenderer<H extends AbstractPet, I extends EntityModel<@NotNull SheepRenderState>> extends PetRenderer<@NotNull H, @NotNull SheepRenderState, @NotNull I> {
     public AbstractEarthSheepRenderer(EntityRendererProvider.Context context, I model, float shadow) {
         super(context, model, shadow);
     }

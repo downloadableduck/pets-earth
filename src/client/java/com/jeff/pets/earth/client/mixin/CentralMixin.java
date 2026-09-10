@@ -1,5 +1,9 @@
 package com.jeff.pets.earth.client.mixin;
 
+import com.jeff.pets.client.Central;
+import com.jeff.pets.client.PetsConfig;
+import com.jeff.pets.client.Utils;
+import com.jeff.pets.client.network.NetworkManager;
 import com.jeff.pets.earth.client.EarthConfig;
 import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.earth.client.Vals;
@@ -7,9 +11,6 @@ import com.jeff.pets.earth.PetsEarth;
 import com.jeff.pets.earth.mob.custom.minecraft_earth.cow.MinecraftEarthCow;
 import com.jeff.pets.earth.mob.custom.minecraft_earth.pig.MinecraftEarthPig;
 import com.jeff.pets.earth.mob.custom.minecraft_earth.sheep.MinecraftEarthSheep;
-import com.jeff.pets.Central;
-import com.jeff.pets.PetsConfig;
-import com.jeff.pets.Utils;
 import com.jeff.pets.mob.AbstractPet;
 import com.jeff.pets.mob.vanilla.hostile.ClientSlime;
 import com.jeff.pets.mob.vanilla.hostile.ClientZombie;
@@ -41,8 +42,8 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Predicate;
 
+import static com.jeff.pets.client.Central.CONFIG;
 import static com.jeff.pets.earth.client.PetsEarthClient.EARTH_CONFIG;
-import static com.jeff.pets.Central.CONFIG;
 
 @Mixin(Central.class)
 public class CentralMixin {
@@ -102,6 +103,7 @@ public class CentralMixin {
         context.getSource().sendFeedback(Component.literal("§b[PetsMod] §aYour active pet has been switched to " + activePet.replace("_", " ")));
         Central.despawnPet();
         Central.summonPet();
+        NetworkManager.get().broadcastGeneral(Minecraft.getInstance().player.getStringUUID(), CONFIG.petOn, CONFIG.activePet, Utils.getActivePetName(), Utils.getActivePetSkin(), CONFIG.isBaby);
     }
     
 	@Inject(at = @At("HEAD"), method = "lambda$createPetSpeciesCommand$1", cancellable = true)
@@ -416,7 +418,7 @@ public class CentralMixin {
         Utils.despawnEntity(boneSpider);
     }
 
-    @Inject(at = @At("HEAD"), method = "lambda$createPetNameCommand$1")
+    /*@Inject(at = @At("HEAD"), method = "lambda$createPetNameCommand$1")
     private static void createPetNameCommand(CommandContext<?> context, CallbackInfoReturnable<Integer> cir) {
         String name = StringArgumentType.getString(context, "name");
         switch(CONFIG.activePet) {
@@ -470,7 +472,7 @@ public class CentralMixin {
             case "bone_spider" -> EARTH_CONFIG.boneSpiderName = name;
         }
         AutoConfig.getConfigHolder(EarthConfig.class).save();
-    }
+    }*/
 
     @Inject(at = @At("HEAD"), method = "refreshPetNames")
     private static void refresh(CallbackInfo ci) {

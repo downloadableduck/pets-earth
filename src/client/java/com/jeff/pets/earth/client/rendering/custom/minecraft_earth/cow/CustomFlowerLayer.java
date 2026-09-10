@@ -1,7 +1,7 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow;
 
-import com.jeff.pets.rendering.aprilfools.mooncow.LegacyCowModel;
-import com.jeff.pets.rendering.aprilfools.mooncow.MoonCowRenderState;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
+import com.jeff.pets.client.rendering.aprilfools.mooncow.MoonCowRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.SubmitNodeCollector;

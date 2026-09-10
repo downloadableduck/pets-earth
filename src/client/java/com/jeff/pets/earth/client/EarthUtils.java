@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client;
 
-import com.jeff.pets.Utils;
+import com.jeff.pets.client.Utils;
 import net.minecraft.resources.Identifier;
 
 import static com.jeff.pets.earth.PetsEarth.MOD_ID;

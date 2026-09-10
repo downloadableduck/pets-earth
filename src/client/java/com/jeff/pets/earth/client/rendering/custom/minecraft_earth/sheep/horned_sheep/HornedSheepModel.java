@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.sheep.horned_sheep;
 
-import com.jeff.pets.rendering.vanilla.sheep.ClientSheepModel;
+import com.jeff.pets.client.rendering.vanilla.sheep.ClientSheepModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;

@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.chicken.fancy_chicken;// Made with Blockbench 5.1.3
 
-import com.jeff.pets.rendering.vanilla.chicken.ClientChickenModel;
+import com.jeff.pets.client.rendering.vanilla.chicken.ClientChickenModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;

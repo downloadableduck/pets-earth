@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.jolly_llama;
 
-import com.jeff.pets.rendering.vanilla.llama.ClientLlamaModel;
+import com.jeff.pets.client.rendering.vanilla.llama.ClientLlamaModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;

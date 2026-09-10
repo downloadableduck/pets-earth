@@ -1,6 +1,6 @@
 package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.pig;
 
-import com.jeff.pets.rendering.vanilla.pig.ClientPigModel;
+import com.jeff.pets.client.rendering.vanilla.pig.ClientPigModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
