@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class MuddyFootRabbitRenderer extends AbstractRabbitRenderer {
 
-    public static final ModelLayerLocation MUDDY_FOOT_RABBIT_LOCATION = Utils.createModelLayer("muddy_foot_rabbit");
+    public static final ModelLayerLocation MUDDY_FOOT_RABBIT_LOCATION = EarthUtils.createModelLayer("muddy_foot_rabbit");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/rabbit/muddy_foot_rabbit.png");
 
     public MuddyFootRabbitRenderer(EntityRendererProvider.Context context) {

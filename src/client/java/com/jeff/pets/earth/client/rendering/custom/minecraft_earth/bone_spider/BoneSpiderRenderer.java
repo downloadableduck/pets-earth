@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BoneSpiderRenderer extends PetRenderer<ClientSpider, LivingEntityRenderState, SpiderModel> {
 
-    public static final ModelLayerLocation BONE_SPIDER_LOCATION = Utils.createModelLayer("bone_spider");
+    public static final ModelLayerLocation BONE_SPIDER_LOCATION = EarthUtils.createModelLayer("bone_spider");
     public BoneSpiderRenderer(EntityRendererProvider.Context context) {
         super(context, new SpiderModel(context.bakeLayer(BONE_SPIDER_LOCATION)), 0.75f);
     }

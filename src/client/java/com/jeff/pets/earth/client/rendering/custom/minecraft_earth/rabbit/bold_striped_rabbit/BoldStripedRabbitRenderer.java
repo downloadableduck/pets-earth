@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class BoldStripedRabbitRenderer extends AbstractRabbitRenderer {
 
-    public static final ModelLayerLocation BOLD_STRIPED_RABBIT_LOCATION = Utils.createModelLayer("bold_striped_rabbit");
+    public static final ModelLayerLocation BOLD_STRIPED_RABBIT_LOCATION = EarthUtils.createModelLayer("bold_striped_rabbit");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/rabbit/bold_striped_rabbit.png");
 
     public BoldStripedRabbitRenderer(EntityRendererProvider.Context context) {

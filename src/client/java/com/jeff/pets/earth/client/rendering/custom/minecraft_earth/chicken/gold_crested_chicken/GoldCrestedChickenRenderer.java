@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class GoldCrestedChickenRenderer extends AbstractChickenRenderer {
 
-    public static final ModelLayerLocation GOLD_CRESTED_CHICKEN_LOCATION = Utils.createModelLayer("gold_crested_chicken");
+    public static final ModelLayerLocation GOLD_CRESTED_CHICKEN_LOCATION = EarthUtils.createModelLayer("gold_crested_chicken");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/chicken/gold_crested_chicken.png");
 
     public GoldCrestedChickenRenderer(EntityRendererProvider.Context context) {

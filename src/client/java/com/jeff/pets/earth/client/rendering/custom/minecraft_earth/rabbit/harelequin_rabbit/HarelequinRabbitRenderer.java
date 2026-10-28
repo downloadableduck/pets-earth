@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class HarelequinRabbitRenderer extends AbstractRabbitRenderer {
 
-    public static final ModelLayerLocation HOW_DO_I_SPELL_THIS = Utils.createModelLayer("harelqueuinra_rabbit");
+    public static final ModelLayerLocation HOW_DO_I_SPELL_THIS = EarthUtils.createModelLayer("harelqueuinra_rabbit");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/rabbit/harelequin_rabbit.png");
 
     public HarelequinRabbitRenderer(EntityRendererProvider.Context context) {

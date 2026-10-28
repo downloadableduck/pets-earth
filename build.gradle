@@ -43,7 +43,7 @@ dependencies {
     implementation("com.terraformersmc:modmenu:${project.modmenu_version}")
     //implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     //implementation "maven.modrinth:pets-mod:0.7.6-26.1.x:sources"
-    implementation "maven.modrinth:pets-mod:CFafBq8b"
+    implementation "maven.modrinth:pets-mod:EeeLZ8zp"
 }
 
 processResources {

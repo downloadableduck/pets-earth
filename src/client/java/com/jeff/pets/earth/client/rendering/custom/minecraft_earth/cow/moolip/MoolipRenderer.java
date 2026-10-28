@@ -3,6 +3,7 @@ package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.moolip;
 import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.PetsEarth;
 import com.jeff.pets.earth.client.EarthUtils;
+import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.cow.FlowerRenderState;
 import com.jeff.pets.earth.mob.custom.minecraft_earth.cow.MinecraftEarthCow;
 import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
 import com.jeff.pets.client.rendering.aprilfools.mooncow.MoonCowRenderState;
@@ -28,7 +29,7 @@ public class MoolipRenderer extends AbstractEarthCowRenderer<LegacyCowModel> {
     }
 
     @Override
-    public void extractRenderState(MinecraftEarthCow cow, MoonCowRenderState state, float f) {
+    public void extractRenderState(MinecraftEarthCow cow, FlowerRenderState state, float f) {
         super.extractRenderState(cow, state, f);
         this.resolver.update(state.flower, PetsEarth.PINK_DAISY.defaultBlockState(), BlockDisplayContext.create());
     }

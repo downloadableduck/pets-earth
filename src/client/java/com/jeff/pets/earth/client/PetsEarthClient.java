@@ -1,8 +1,11 @@
 package com.jeff.pets.earth.client;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jeff.pets.client.Central;
 import com.jeff.pets.client.PetsClientInitializer;
 import com.jeff.pets.client.Utils;
+import com.jeff.pets.client.addon.PetsModAddons;
 import com.jeff.pets.client.rendering.aprilfools.mooncow.LegacyCowModel;
 import com.jeff.pets.client.rendering.vanilla.cat.ClientCatRenderer;
 import com.jeff.pets.client.rendering.vanilla.chicken.ClientChickenModel;
@@ -71,133 +74,187 @@ import com.jeff.pets.earth.client.rendering.custom.minecraft_earth.zombie.lobber
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.model.animal.golem.IronGolemModel;
 import net.minecraft.client.model.animal.golem.SnowGolemModel;
 import net.minecraft.client.model.monster.slime.SlimeModel;
 import net.minecraft.client.model.monster.spider.SpiderModel;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 
+import java.io.File;
+import java.io.Reader;
+import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
-import static com.jeff.pets.earth.PetsEarth.MOD_ID;
+import static com.jeff.pets.earth.PetsEarth.*;
 
 public class PetsEarthClient implements ClientModInitializer {
+    public static final PetsModAddons ADDON = PetsModAddons.registerAddon(MOD_ID);
+    public static String fleckedSheepName = "";
+    public static String fuzzySheepName = "";
+    public static String inkySheepName = "";
+    public static String longNosedSheepName = "";
+    public static String patchedSheepName = "";
+    public static String rainbowSheepName = "";
+    public static String rockySheepName = "";
+    public static String hornedSheepName = "";
 
-    public static EarthConfig EARTH_CONFIG = AutoConfig.register(EarthConfig.class, GsonConfigSerializer::new).getConfig();
+    public static String mottledPigName = "";
+    public static String muddyPigName = "";
+    public static String palePigName = "";
+    public static String piebaldPigName = "";
+    public static String pinkFootedPigName = "";
+    public static String sootyPigName = "";
+    public static String spottedPigName = "";
+
+    public static String albinoCowName = "";
+    public static String ashenCowName = "";
+    public static String cookieCowName = "";
+    public static String creamCowName = "";
+    public static String dairyCowName = "";
+    public static String moobloomName = "";
+    public static String moolipName = "";
+    public static String pintoCowName = "";
+    public static String sunsetCowName = "";
+    public static String umbraCowName = "";
+    public static String woolyCowName = "";
+
+    public static String tropicalSlimeName = "";
+    public static String jollyLlamaName = "";
+    public static String dyedCatName = "";
+    public static String furnaceGolemName = "";
+
+    public static String amberChickenName = "";
+    public static String bronzedChickenName = "";
+    public static String cluckshroomName = "";
+    public static String fancyChickenName = "";
+    public static String goldCrestedChickenName = "";
+    public static String midnightChickenName = "";
+    public static String skewbaldChickenName = "";
+    public static String stormyChickenName = "";
+
+    public static String boldStripedRabbitName = "";
+    public static String freckledRabbitName = "";
+    public static String harelequinRabbitName = "";
+    public static String muddyFootRabbitName = "";
+    public static String vestedRabbitName = "";
+
+    public static String melonGolemName = "";
+    public static String boulderingZombieName = "";
+    public static String lobberZombieName = "";
+    public static String skeletonWolfName = "";
+    public static String boneSpiderName = "";
 
 	@Override
 	public void onInitializeClient() {
-        PetsClientInitializer.ADDONS.add(MOD_ID);
-        this.checkforNullObjects();
-        this.addAllToPetList(Vals.getLowercaseVals());
+        try {
+            ADDON.addPet(RAINBOW_SHEEP, "rainbow_sheep", this.getClass().getDeclaredField("rainbowSheepName"), Optional.empty());
+            ADDON.addPet(FLECKED_SHEEP, "flecked_sheep", this.getClass().getDeclaredField("fleckedSheepName"), Optional.empty());
+            ADDON.addPet(FUZZY_SHEEP, "fuzzy_sheep", this.getClass().getDeclaredField("fuzzySheepName"), Optional.empty());
+            ADDON.addPet(INKY_SHEEP, "inky_sheep", this.getClass().getDeclaredField("inkySheepName"), Optional.empty());
+            ADDON.addPet(LONG_NOSED_SHEEP, "long_nosed_sheep", this.getClass().getDeclaredField("longNosedSheepName"), Optional.empty());
+            ADDON.addPet(PATCHED_SHEEP, "patched_sheep", this.getClass().getDeclaredField("patchedSheepName"), Optional.empty());
+            ADDON.addPet(ROCKY_SHEEP, "rocky_sheep", this.getClass().getDeclaredField("rockySheepName"), Optional.empty());
+            ADDON.addPet(HORNED_SHEEP, "horned_sheep", this.getClass().getDeclaredField("hornedSheepName"), Optional.empty());
+            ADDON.addPet(MOTTLED_PIG, "mottled_pig", this.getClass().getDeclaredField("mottledPigName"), Optional.empty());
+            ADDON.addPet(MUDDY_PIG, "muddy_pig", this.getClass().getDeclaredField("muddyPigName"), Optional.empty());
+            ADDON.addPet(PALE_PIG, "pale_pig", this.getClass().getDeclaredField("palePigName"), Optional.empty());
+            ADDON.addPet(PIEBALD_PIG, "piebald_pig", this.getClass().getDeclaredField("piebaldPigName"), Optional.empty());
+            ADDON.addPet(PINK_FOOTED_PIG, "pink_footed_pig", this.getClass().getDeclaredField("pinkFootedPigName"), Optional.empty());
+            ADDON.addPet(SOOTY_PIG, "sooty_pig", this.getClass().getDeclaredField("sootyPigName"), Optional.empty());
+            ADDON.addPet(SPOTTED_PIG, "spotted_pig", this.getClass().getDeclaredField("spottedPigName"), Optional.empty());
+            ADDON.addPet(ALBINO_COW, "albino_cow", this.getClass().getDeclaredField("albinoCowName"), Optional.empty());
+            ADDON.addPet(ASHEN_COW, "ashen_cow", this.getClass().getDeclaredField("ashenCowName"), Optional.empty());
+            ADDON.addPet(COOKIE_COW, "cookie_cow", this.getClass().getDeclaredField("cookieCowName"), Optional.empty());
+            ADDON.addPet(CREAM_COW, "cream_cow", this.getClass().getDeclaredField("creamCowName"), Optional.empty());
+            ADDON.addPet(DAIRY_COW, "dairy_cow", this.getClass().getDeclaredField("dairyCowName"), Optional.empty());
+            ADDON.addPet(MOOBLOOM, "moobloom", this.getClass().getDeclaredField("moobloomName"), Optional.empty());
+            ADDON.addPet(MOOLIP, "moolip", this.getClass().getDeclaredField("moolipName"), Optional.empty());
+            ADDON.addPet(PINTO_COW, "pinto_cow", this.getClass().getDeclaredField("pintoCowName"), Optional.empty());
+            ADDON.addPet(SUNSET_COW, "sunset_cow", this.getClass().getDeclaredField("sunsetCowName"), Optional.empty());
+            ADDON.addPet(UMBRA_COW, "umbra_cow", this.getClass().getDeclaredField("umbraCowName"), Optional.empty());
+            ADDON.addPet(WOOLY_COW, "wooly_cow", this.getClass().getDeclaredField("woolyCowName"), Optional.empty());
+            ADDON.addPet(TROPICAL_SLIME, "tropical_slime", this.getClass().getDeclaredField("tropicalSlimeName"), Optional.empty());
+            ADDON.addPet(JOLLY_LLAMA, "jolly_llama", this.getClass().getDeclaredField("jollyLlamaName"), Optional.empty());
+            ADDON.addPet(DYED_CAT, "dyed_cat", this.getClass().getDeclaredField("dyedCatName"), Optional.empty());
+            ADDON.addPet(FURNACE_GOLEM, "furnace_golem", this.getClass().getDeclaredField("furnaceGolemName"), Optional.empty());
+            ADDON.addPet(AMBER_CHICKEN, "amber_chicken", this.getClass().getDeclaredField("amberChickenName"), Optional.empty());
+            ADDON.addPet(BRONZED_CHICKEN, "bronzed_chicken", this.getClass().getDeclaredField("bronzedChickenName"), Optional.empty());
+            ADDON.addPet(CLUCKSHROOM, "cluckshroom", this.getClass().getDeclaredField("cluckshroomName"), Optional.empty());
+            ADDON.addPet(FANCY_CHICKEN, "fancy_chicken", this.getClass().getDeclaredField("fancyChickenName"), Optional.empty());
+            ADDON.addPet(GOLD_CRESTED_CHICKEN, "gold_crested_chicken", this.getClass().getDeclaredField("goldCrestedChickenName"), Optional.empty());
+            ADDON.addPet(MIDNIGHT_CHICKEN, "midnight_chicken", this.getClass().getDeclaredField("midnightChickenName"), Optional.empty());
+            ADDON.addPet(SKEWBALD_CHICKEN, "skewbald_chicken", this.getClass().getDeclaredField("skewbaldChickenName"), Optional.empty());
+            ADDON.addPet(STORMY_CHICKEN, "stormy_chicken", this.getClass().getDeclaredField("stormyChickenName"), Optional.empty());
+            ADDON.addPet(BOLD_STRIPED_RABBIT, "bold_striped_rabbit", this.getClass().getDeclaredField("boldStripedRabbitName"), Optional.empty());
+            ADDON.addPet(FRECKLED_RABBIT, "freckled_rabbit", this.getClass().getDeclaredField("freckledRabbitName"), Optional.empty());
+            ADDON.addPet(HARELEQUIN_RABBIT, "harelequin_rabbit", this.getClass().getDeclaredField("harelequinRabbitName"), Optional.empty());
+            ADDON.addPet(MUDDY_FOOT_RABBIT, "muddy_foot_rabbit", this.getClass().getDeclaredField("muddyFootRabbitName"), Optional.empty());
+            ADDON.addPet(VESTED_RABBIT, "vested_rabbit", this.getClass().getDeclaredField("vestedRabbitName"), Optional.empty());
+            ADDON.addPet(MELON_GOLEM, "melon_golem", this.getClass().getDeclaredField("melonGolemName"), Optional.empty());
+            ADDON.addPet(BOULDERING_ZOMBIE, "bouldering_zombie", this.getClass().getDeclaredField("boulderingZombieName"), Optional.empty());
+            ADDON.addPet(LOBBER_ZOMBIE, "lobber_zombie", this.getClass().getDeclaredField("lobberZombieName"), Optional.empty());
+            ADDON.addPet(SKELETON_WOLF, "skeleton_wolf", this.getClass().getDeclaredField("skeletonWolfName"), Optional.empty());
+            ADDON.addPet(BONE_SPIDER, "bone_spider", this.getClass().getDeclaredField("boneSpiderName"), Optional.empty());
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
         this.registerLayers();
-	}
-
-    private void checkforNullObjects() {
-        EARTH_CONFIG.fleckedSheepName = Utils.checkNullString(EARTH_CONFIG.fleckedSheepName);
-        EARTH_CONFIG.fuzzySheepName = Utils.checkNullString(EARTH_CONFIG.fuzzySheepName);
-        EARTH_CONFIG.hornedSheepName = Utils.checkNullString(EARTH_CONFIG.hornedSheepName);
-        EARTH_CONFIG.inkySheepName = Utils.checkNullString(EARTH_CONFIG.inkySheepName);
-        EARTH_CONFIG.longNosedSheepName = Utils.checkNullString(EARTH_CONFIG.longNosedSheepName);
-        EARTH_CONFIG.patchedSheepName = Utils.checkNullString(EARTH_CONFIG.patchedSheepName);
-        EARTH_CONFIG.rainbowSheepName = Utils.checkNullString(EARTH_CONFIG.rainbowSheepName);
-        EARTH_CONFIG.rockySheepName = Utils.checkNullString(EARTH_CONFIG.rockySheepName);
-
-        EARTH_CONFIG.mottledPigName = Utils.checkNullString(EARTH_CONFIG.mottledPigName);
-        EARTH_CONFIG.muddyPigName = Utils.checkNullString(EARTH_CONFIG.muddyPigName);
-        EARTH_CONFIG.palePigName = Utils.checkNullString(EARTH_CONFIG.palePigName);
-        EARTH_CONFIG.piebaldPigName = Utils.checkNullString(EARTH_CONFIG.piebaldPigName);
-        EARTH_CONFIG.pinkFootedPigName = Utils.checkNullString(EARTH_CONFIG.pinkFootedPigName);
-        EARTH_CONFIG.sootyPigName = Utils.checkNullString(EARTH_CONFIG.sootyPigName);
-        EARTH_CONFIG.spottedPigName = Utils.checkNullString(EARTH_CONFIG.spottedPigName);
-
-        EARTH_CONFIG.albinoCowName = Utils.checkNullString(EARTH_CONFIG.albinoCowName);
-        EARTH_CONFIG.ashenCowName = Utils.checkNullString(EARTH_CONFIG.ashenCowName);
-        EARTH_CONFIG.cookieCowName = Utils.checkNullString(EARTH_CONFIG.cookieCowName);
-        EARTH_CONFIG.creamCowName = Utils.checkNullString(EARTH_CONFIG.creamCowName);
-        EARTH_CONFIG.dairyCowName = Utils.checkNullString(EARTH_CONFIG.dairyCowName);
-        EARTH_CONFIG.moobloomName = Utils.checkNullString(EARTH_CONFIG.moobloomName);
-        EARTH_CONFIG.moolipName = Utils.checkNullString(EARTH_CONFIG.moolipName);
-        EARTH_CONFIG.pintoCowName = Utils.checkNullString(EARTH_CONFIG.pintoCowName);
-        EARTH_CONFIG.sunsetCowName = Utils.checkNullString(EARTH_CONFIG.sunsetCowName);
-        EARTH_CONFIG.umbraCowName = Utils.checkNullString(EARTH_CONFIG.umbraCowName);
-        EARTH_CONFIG.woolyCowName = Utils.checkNullString(EARTH_CONFIG.woolyCowName);
-        EARTH_CONFIG.tropicalSlimeName = Utils.checkNullString(EARTH_CONFIG.tropicalSlimeName);
-
-        EARTH_CONFIG.jollyLlamaName = Utils.checkNullString(EARTH_CONFIG.jollyLlamaName);
-        EARTH_CONFIG.dyedCatName = Utils.checkNullString(EARTH_CONFIG.dyedCatName);
-        EARTH_CONFIG.furnaceGolemName = Utils.checkNullString(EARTH_CONFIG.furnaceGolemName);
-
-        EARTH_CONFIG.amberChickenName = Utils.checkNullString(EARTH_CONFIG.amberChickenName);
-        EARTH_CONFIG.bronzedChickenName = Utils.checkNullString(EARTH_CONFIG.bronzedChickenName);
-        EARTH_CONFIG.cluckshroomName = Utils.checkNullString(EARTH_CONFIG.cluckshroomName);
-        EARTH_CONFIG.fancyChickenName = Utils.checkNullString(EARTH_CONFIG.fancyChickenName);
-        EARTH_CONFIG.goldCrestedChickenName = Utils.checkNullString(EARTH_CONFIG.goldCrestedChickenName);
-        EARTH_CONFIG.skewbaldChickenName = Utils.checkNullString(EARTH_CONFIG.skewbaldChickenName);
-        EARTH_CONFIG.midnightChickenName = Utils.checkNullString(EARTH_CONFIG.midnightChickenName);
-        EARTH_CONFIG.stormyChickenName = Utils.checkNullString(EARTH_CONFIG.stormyChickenName);
-        EARTH_CONFIG.boldStripedRabbitName = Utils.checkNullString(EARTH_CONFIG.boldStripedRabbitName);
-        EARTH_CONFIG.freckledRabbitName = Utils.checkNullString(EARTH_CONFIG.freckledRabbitName);
-        EARTH_CONFIG.harelequinRabbitName = Utils.checkNullString(EARTH_CONFIG.harelequinRabbitName);
-        EARTH_CONFIG.muddyFootRabbitName = Utils.checkNullString(EARTH_CONFIG.muddyFootRabbitName);
-        EARTH_CONFIG.vestedRabbitName = Utils.checkNullString(EARTH_CONFIG.vestedRabbitName);
-        EARTH_CONFIG.melonGolemName = Utils.checkNullString(EARTH_CONFIG.melonGolemName);
-        EARTH_CONFIG.boulderingZombieName = Utils.checkNullString(EARTH_CONFIG.boulderingZombieName);
-        EARTH_CONFIG.lobberZombieName = Utils.checkNullString(EARTH_CONFIG.lobberZombieName);
-        EARTH_CONFIG.skeletonWolfName = Utils.checkNullString(EARTH_CONFIG.skeletonWolfName);
-        EARTH_CONFIG.boneSpiderName = Utils.checkNullString(EARTH_CONFIG.boneSpiderName);
     }
 
     private void registerLayers() {
-        EntityRendererRegistry.register(PetsEarth.RAINBOW_SHEEP, RainbowSheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.FLECKED_SHEEP, FleckedSheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.FUZZY_SHEEP, FuzzySheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.HORNED_SHEEP, HornedSheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.INKY_SHEEP, InkySheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.LONG_NOSED_SHEEP, LongNosedSheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.PATCHED_SHEEP, PatchedSheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.ROCKY_SHEEP, RockySheepRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MOTTLED_PIG, MottledPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MUDDY_PIG, MuddyPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.PALE_PIG, PalePigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.PIEBALD_PIG, PiebaldPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.PINK_FOOTED_PIG, PinkFootedPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.SOOTY_PIG, SootyPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.SPOTTED_PIG, SpottedPigRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MOOBLOOM, MoobloomRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.ALBINO_COW, AlbinoCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.ASHEN_COW, AshenCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.COOKIE_COW, CookieCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.CREAM_COW, CreamCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.DAIRY_COW, DairyCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MOOLIP, MoolipRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.PINTO_COW, PintoCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.SUNSET_COW, SunsetCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.UMBRA_COW, UmbraCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.WOOLY_COW, WoolyCowRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.TROPICAL_SLIME, TropicalSlimeRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.JOLLY_LLAMA, JollyLlamaRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.DYED_CAT, DyedCatRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.FURNACE_GOLEM, FurnaceGolemRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.AMBER_CHICKEN, AmberChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.BRONZED_CHICKEN, BronzedChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.CLUCKSHROOM, CluckshroomRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.FANCY_CHICKEN, FancyChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.GOLD_CRESTED_CHICKEN, GoldCrestedChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MIDNIGHT_CHICKEN, MidnightChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.SKEWBALD_CHICKEN, SkewbaldChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.STORMY_CHICKEN, StormyChickenRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.BOLD_STRIPED_RABBIT, BoldStripedRabbitRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.FRECKLED_RABBIT, FreckledRabbitRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.HARELEQUIN_RABBIT, HarelequinRabbitRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MUDDY_FOOT_RABBIT, MuddyFootRabbitRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.VESTED_RABBIT, VestedRabbitRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.MELON_GOLEM, MelonGolemRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.BOULDERING_ZOMBIE, BoulderingZombieRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.LOBBER_ZOMBIE, LobberZombieRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.SKELETON_WOLF, SkeletonWolfRenderer::new);
-        EntityRendererRegistry.register(PetsEarth.BONE_SPIDER, BoneSpiderRenderer::new);
+        EntityRenderers.register(PetsEarth.RAINBOW_SHEEP, RainbowSheepRenderer::new);
+        EntityRenderers.register(PetsEarth.FLECKED_SHEEP, FleckedSheepRenderer::new);
+        EntityRenderers.register(PetsEarth.FUZZY_SHEEP, FuzzySheepRenderer::new);
+        EntityRenderers.register(PetsEarth.HORNED_SHEEP, HornedSheepRenderer::new);
+        EntityRenderers.register(PetsEarth.INKY_SHEEP, InkySheepRenderer::new);
+        EntityRenderers.register(PetsEarth.LONG_NOSED_SHEEP, LongNosedSheepRenderer::new);
+        EntityRenderers.register(PetsEarth.PATCHED_SHEEP, PatchedSheepRenderer::new);
+        EntityRenderers.register(PetsEarth.ROCKY_SHEEP, RockySheepRenderer::new);
+        EntityRenderers.register(PetsEarth.MOTTLED_PIG, MottledPigRenderer::new);
+        EntityRenderers.register(PetsEarth.MUDDY_PIG, MuddyPigRenderer::new);
+        EntityRenderers.register(PetsEarth.PALE_PIG, PalePigRenderer::new);
+        EntityRenderers.register(PetsEarth.PIEBALD_PIG, PiebaldPigRenderer::new);
+        EntityRenderers.register(PetsEarth.PINK_FOOTED_PIG, PinkFootedPigRenderer::new);
+        EntityRenderers.register(PetsEarth.SOOTY_PIG, SootyPigRenderer::new);
+        EntityRenderers.register(PetsEarth.SPOTTED_PIG, SpottedPigRenderer::new);
+        EntityRenderers.register(PetsEarth.MOOBLOOM, MoobloomRenderer::new);
+        EntityRenderers.register(PetsEarth.ALBINO_COW, AlbinoCowRenderer::new);
+        EntityRenderers.register(PetsEarth.ASHEN_COW, AshenCowRenderer::new);
+        EntityRenderers.register(PetsEarth.COOKIE_COW, CookieCowRenderer::new);
+        EntityRenderers.register(PetsEarth.CREAM_COW, CreamCowRenderer::new);
+        EntityRenderers.register(PetsEarth.DAIRY_COW, DairyCowRenderer::new);
+        EntityRenderers.register(PetsEarth.MOOLIP, MoolipRenderer::new);
+        EntityRenderers.register(PetsEarth.PINTO_COW, PintoCowRenderer::new);
+        EntityRenderers.register(PetsEarth.SUNSET_COW, SunsetCowRenderer::new);
+        EntityRenderers.register(PetsEarth.UMBRA_COW, UmbraCowRenderer::new);
+        EntityRenderers.register(PetsEarth.WOOLY_COW, WoolyCowRenderer::new);
+        EntityRenderers.register(PetsEarth.TROPICAL_SLIME, TropicalSlimeRenderer::new);
+        EntityRenderers.register(PetsEarth.JOLLY_LLAMA, JollyLlamaRenderer::new);
+        EntityRenderers.register(PetsEarth.DYED_CAT, DyedCatRenderer::new);
+        EntityRenderers.register(PetsEarth.FURNACE_GOLEM, FurnaceGolemRenderer::new);
+        EntityRenderers.register(PetsEarth.AMBER_CHICKEN, AmberChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.BRONZED_CHICKEN, BronzedChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.CLUCKSHROOM, CluckshroomRenderer::new);
+        EntityRenderers.register(PetsEarth.FANCY_CHICKEN, FancyChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.GOLD_CRESTED_CHICKEN, GoldCrestedChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.MIDNIGHT_CHICKEN, MidnightChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.SKEWBALD_CHICKEN, SkewbaldChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.STORMY_CHICKEN, StormyChickenRenderer::new);
+        EntityRenderers.register(PetsEarth.BOLD_STRIPED_RABBIT, BoldStripedRabbitRenderer::new);
+        EntityRenderers.register(PetsEarth.FRECKLED_RABBIT, FreckledRabbitRenderer::new);
+        EntityRenderers.register(PetsEarth.HARELEQUIN_RABBIT, HarelequinRabbitRenderer::new);
+        EntityRenderers.register(PetsEarth.MUDDY_FOOT_RABBIT, MuddyFootRabbitRenderer::new);
+        EntityRenderers.register(PetsEarth.VESTED_RABBIT, VestedRabbitRenderer::new);
+        EntityRenderers.register(PetsEarth.MELON_GOLEM, MelonGolemRenderer::new);
+        EntityRenderers.register(PetsEarth.BOULDERING_ZOMBIE, BoulderingZombieRenderer::new);
+        EntityRenderers.register(PetsEarth.LOBBER_ZOMBIE, LobberZombieRenderer::new);
+        EntityRenderers.register(PetsEarth.SKELETON_WOLF, SkeletonWolfRenderer::new);
+        EntityRenderers.register(PetsEarth.BONE_SPIDER, BoneSpiderRenderer::new);
 
         ModelLayerRegistry.registerModelLayer(RainbowSheepRenderer.RAINBOW_SHEEP_LOCATION, EarthSheepModel::createBodyLayer);
         ModelLayerRegistry.registerModelLayer(FleckedSheepRenderer.FLECKED_SHEEP_LOCATION, EarthSheepModel::createBodyLayer);
@@ -248,9 +305,5 @@ public class PetsEarthClient implements ClientModInitializer {
         ModelLayerRegistry.registerModelLayer(LobberZombieRenderer.LOBBER_ZOMBIE_LOCATION, LobberZombieModel::createBodyLayer);
         ModelLayerRegistry.registerModelLayer(SkeletonWolfRenderer.SKELETON_WOLF_LOCATION, ClientWolfRenderer::createBodyLayer);
         ModelLayerRegistry.registerModelLayer(BoneSpiderRenderer.BONE_SPIDER_LOCATION, SpiderModel::createSpiderBodyLayer);
-    }
-
-    private void addAllToPetList(String ... s) {
-        Central.PETS_LIST.addAll(Arrays.asList(s));
     }
 }

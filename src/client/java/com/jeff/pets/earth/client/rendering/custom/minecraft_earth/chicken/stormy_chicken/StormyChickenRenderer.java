@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class StormyChickenRenderer extends AbstractChickenRenderer {
 
-    public static final ModelLayerLocation STORMY_CHICKEN_LOCATION = Utils.createModelLayer("stormy_chicken");
+    public static final ModelLayerLocation STORMY_CHICKEN_LOCATION = EarthUtils.createModelLayer("stormy_chicken");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/chicken/stormy_chicken.png");
 
     public StormyChickenRenderer(EntityRendererProvider.Context context) {

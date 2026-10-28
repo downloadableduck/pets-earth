@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.jeff.pets.client.Central.CONFIG;
 
-public abstract class AbstractEarthCowRenderer<T extends ClientCowModel> extends PetRenderer<MinecraftEarthCow, MoonCowRenderState, T> {
+public abstract class AbstractEarthCowRenderer<T extends ClientCowModel> extends PetRenderer<MinecraftEarthCow, FlowerRenderState, T> {
 
     private final ModelLayerLocation location;
     private final Identifier texture;
@@ -24,17 +24,17 @@ public abstract class AbstractEarthCowRenderer<T extends ClientCowModel> extends
     }
 
     @Override
-    public @NotNull Identifier getTextureLocation(@NotNull MoonCowRenderState state) {
+    public @NotNull Identifier getTextureLocation(@NotNull FlowerRenderState state) {
         return texture;
     }
 
     @Override
-    public @NotNull MoonCowRenderState createRenderState() {
-        return new MoonCowRenderState();
+    public @NotNull FlowerRenderState createRenderState() {
+        return new FlowerRenderState();
     }
 
     @Override
-    protected void scale(MoonCowRenderState state, @NotNull PoseStack poseStack) {
+    protected void scale(FlowerRenderState state, @NotNull PoseStack poseStack) {
         if (CONFIG.isBaby) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }

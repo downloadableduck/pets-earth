@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FancyChickenRenderer extends PetRenderer<ClientChicken, ChickenRenderState, FancyChickenModel> {
 
-    public static final ModelLayerLocation FANCY_CHICKEN_LOCATION = Utils.createModelLayer("fancy_chicken");
+    public static final ModelLayerLocation FANCY_CHICKEN_LOCATION = EarthUtils.createModelLayer("fancy_chicken");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/chicken/fancy_chicken.png");
 
     public FancyChickenRenderer(EntityRendererProvider.Context context) {

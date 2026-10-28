@@ -21,7 +21,7 @@ import static com.jeff.pets.client.Central.CONFIG;
 
 public class SkeletonWolfRenderer extends PetRenderer<ClientWolf, WolfRenderState, ClientWolfModel> {
 
-    public static final ModelLayerLocation SKELETON_WOLF_LOCATION = Utils.createModelLayer("skeleton_wolf");
+    public static final ModelLayerLocation SKELETON_WOLF_LOCATION = EarthUtils.createModelLayer("skeleton_wolf");
 
     public SkeletonWolfRenderer(EntityRendererProvider.Context context) {
         super(context, new ClientWolfModel(context.bakeLayer(ModelLayers.WOLF)), 0.75f);

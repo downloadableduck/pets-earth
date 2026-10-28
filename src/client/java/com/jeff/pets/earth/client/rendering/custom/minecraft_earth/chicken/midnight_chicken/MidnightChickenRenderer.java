@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class MidnightChickenRenderer extends AbstractChickenRenderer {
 
-    public static final ModelLayerLocation MIDNIGHT_CHICKEN_LOCATION = Utils.createModelLayer("midnight_chicken");
+    public static final ModelLayerLocation MIDNIGHT_CHICKEN_LOCATION = EarthUtils.createModelLayer("midnight_chicken");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/chicken/midnight_chicken.png");
 
     public MidnightChickenRenderer(EntityRendererProvider.Context context) {

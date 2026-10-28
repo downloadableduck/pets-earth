@@ -2,6 +2,7 @@ package com.jeff.pets.earth.client.rendering.custom.minecraft_earth.melon_golem;
 
 import com.jeff.pets.client.Utils;
 import com.jeff.pets.earth.PetsEarth;
+import com.jeff.pets.earth.client.EarthUtils;
 import com.jeff.pets.mob.vanilla.passive.ClientSnowGolem;
 import com.jeff.pets.client.rendering.PetRenderer;
 import net.minecraft.client.model.animal.golem.SnowGolemModel;
@@ -23,7 +24,7 @@ import java.util.function.Function;
 
 public class MelonGolemRenderer extends PetRenderer<ClientSnowGolem, SnowGolemRenderState, SnowGolemModel> {
 
-    public static final ModelLayerLocation MELON_GOLEM_LOCATION = Utils.createModelLayer("melon_golem");
+    public static final ModelLayerLocation MELON_GOLEM_LOCATION = EarthUtils.createModelLayer("melon_golem");
     private final BlockModelResolver resolver;
 
     public MelonGolemRenderer(EntityRendererProvider.Context context) {

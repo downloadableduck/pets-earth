@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 public class VestedRabbitRenderer extends AbstractRabbitRenderer {
 
-    public static final ModelLayerLocation VESTED_RABBIT_LOCATION = Utils.createModelLayer("vested_rabbit");
+    public static final ModelLayerLocation VESTED_RABBIT_LOCATION = EarthUtils.createModelLayer("vested_rabbit");
     private static final Identifier TEXTURE = EarthUtils.withModNamespace("textures/entity/minecraft_earth/rabbit/vested_rabbit.png");
 
     public VestedRabbitRenderer(EntityRendererProvider.Context context) {

@@ -1,10 +1,8 @@
 {
   "required": true,
-  "package": "com.jeff.pets.earth.client.mixin",
+  "package": "",
   "compatibilityLevel": "JAVA_25",
   "client": [
-    "CentralMixin",
-    "ConfigScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -13,7 +11,5 @@
     "requireAnnotations": true
   },
   "mixins": [
-    "PetsListMixin",
-    "UtilsMixin"
   ]
 }

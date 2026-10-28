@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import org.jetbrains.annotations.NotNull;
 
-public class CustomFlowerLayer extends RenderLayer<@NotNull MoonCowRenderState, @NotNull LegacyCowModel> {
-    public CustomFlowerLayer(RenderLayerParent<@NotNull MoonCowRenderState, @NotNull LegacyCowModel> renderer) {
+public class CustomFlowerLayer extends RenderLayer<@NotNull FlowerRenderState, @NotNull LegacyCowModel> {
+    public CustomFlowerLayer(RenderLayerParent<@NotNull FlowerRenderState, @NotNull LegacyCowModel> renderer) {
         super(renderer);
     }
 
     @Override
-    public void submit(PoseStack poseStack, @NotNull SubmitNodeCollector submitNodeCollector, int lightCoords, MoonCowRenderState state, float yRot, float xRot) {
+    public void submit(PoseStack poseStack, @NotNull SubmitNodeCollector submitNodeCollector, int lightCoords, FlowerRenderState state, float yRot, float xRot) {
         int overlayCoords = LivingEntityRenderer.getOverlayCoords(state, 0.0F);
         poseStack.pushPose();
         poseStack.translate(0.2F, -0.35F, 0.5F);

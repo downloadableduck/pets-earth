@@ -1,6 +1,5 @@
 {
-	"required": true,
-	"package": "com.jeff.pets.mixin",
+	"required": false,
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
 	],
@@ -9,5 +8,6 @@
 	},
 	"overwrites": {
 		"requireAnnotations": true
-	}
+	},
+  "package": ""
 }

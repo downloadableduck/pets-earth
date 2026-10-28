@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CluckshroomRenderer extends PetRenderer<ClientChicken, ChickenRenderState, CluckshroomModel> {
 
-    public static final ModelLayerLocation CLUCKSHROOM_LOCATION = Utils.createModelLayer("cluckshroom");
+    public static final ModelLayerLocation CLUCKSHROOM_LOCATION = EarthUtils.createModelLayer("cluckshroom");
 
     public CluckshroomRenderer(EntityRendererProvider.Context context) {
         super(context, new CluckshroomModel(context.bakeLayer(CLUCKSHROOM_LOCATION)), 0.75f);

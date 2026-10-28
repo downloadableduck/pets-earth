@@ -15,7 +15,7 @@ import static com.jeff.pets.client.Central.CONFIG;
 
 public class BoulderingZombieRenderer extends PetRenderer<ClientZombie, ZombieRenderState, BoulderingZombieModel> {
 
-    public static final ModelLayerLocation BOULDERING_ZOMBIE_LOCATION = Utils.createModelLayer("bouldering_zombie");
+    public static final ModelLayerLocation BOULDERING_ZOMBIE_LOCATION = EarthUtils.createModelLayer("bouldering_zombie");
 
     public BoulderingZombieRenderer(EntityRendererProvider.Context context) {
         super(context, new BoulderingZombieModel(context.bakeLayer(BOULDERING_ZOMBIE_LOCATION)), 0.75f);
